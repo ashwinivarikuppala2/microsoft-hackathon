@@ -1527,7 +1527,6 @@ function App() {
                   {(() => {
                     const playbooks = playbookMap(report);
                     const evidence = report.retrieval?.evidence || [];
-                    const recommendations = report.recommendations || [];
                     const hasSimilarDeals = evidence.length > 0;
 
                     return (
@@ -1713,42 +1712,6 @@ function App() {
                           )}
                         </Panel>
 
-                        <Panel
-                          title="Suggested next steps"
-                          aside={
-                            <span className="section-count">
-                              {recommendations.length} ACTIONS
-                            </span>
-                          }
-                        >
-                          {recommendations.length ? (
-                            <div className="compact-recommendations">
-                              {recommendations.map((item, index) => (
-                                <article
-                                  className="compact-recommendation"
-                                  key={item.action_type || index}
-                                >
-                                  <span className="action-number">
-                                    {String(index + 1).padStart(2, "0")}
-                                  </span>
-                                  <div>
-                                    <span>{(item.action_type || "ACTION").toUpperCase()}</span>
-                                    <strong>{item.headline}</strong>
-                                    {item.detailed_guidance && (
-                                      <p>{item.detailed_guidance}</p>
-                                    )}
-                                  </div>
-                                </article>
-                              ))}
-                            </div>
-                          ) : (
-                            <EmptyState
-                              icon={Target}
-                              title="No recommendation generated yet."
-                            />
-                          )}
-                        </Panel>
-
                         <details className="analysis-details">
                           <summary>
                             <TrendingUp size={15} />
@@ -1818,25 +1781,6 @@ function App() {
                           </div>
                         </details>
 
-                        <details className="analysis-details technical-evidence-details">
-                          <summary>
-                            <Database size={15} />
-                            <span>Technical Hindsight evidence</span>
-                            <span className="section-count">
-                              {report.retrieval?.memories?.length || 0} MEMORIES
-                            </span>
-                            <ChevronDown size={15} />
-                          </summary>
-                          <div className="technical-evidence-body">
-                            <details className="query-detail">
-                              <summary>
-                                <Search size={14} /> View query sent to Hindsight
-                              </summary>
-                              <p>{report.retrieval?.query}</p>
-                            </details>
-                            <MemoryList memories={report.retrieval?.memories || []} />
-                          </div>
-                        </details>
                       </>
                     );
                   })()}
