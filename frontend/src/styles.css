@@ -346,6 +346,46 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .historical-card > span { display: block; margin-top: 5px; color: #879189; font-family: var(--mono); font-size: 8px; }
 .historical-card > p { margin: 7px 0 0; color: #727e76; font-size: 9px; line-height: 1.45; }
 .historical-card > p b { color: #506258; }
+.recommended-deal-card { display: grid; align-content: start; gap: 12px; min-width: 0; padding: 15px; container: recommended-deal / inline-size; }
+.recommended-deal-card > div { display: block; min-width: 0; }
+.recommended-deal-card > .recommended-deal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid #e9eeea; }
+.recommended-deal-title { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: start; gap: 9px; min-width: 0; }
+.recommended-deal-title > div { display: grid; gap: 4px; min-width: 0; }
+.recommended-deal-title strong { color: #30433a; font-size: 12px !important; line-height: 1.35; overflow-wrap: anywhere; }
+.recommended-deal-title span:not(.deal-rank) { color: #7f8b83; font-family: var(--mono); font-size: 8px; line-height: 1.5; overflow-wrap: anywhere; }
+.deal-rank { display: grid; place-items: center; width: 27px; height: 27px; border: 1px solid #dce8df; border-radius: 50%; color: #39745d; background: #f2f7f2; font-family: var(--mono); font-size: 9px; }
+.recommended-deal-meta { display: flex; align-items: center; justify-content: flex-end; gap: 7px; flex: 0 0 auto; }
+.recommended-deal-meta > strong { color: #43584b; font-family: var(--mono); font-size: 10px !important; }
+.recommended-deal-card > .similarity-bar-row { display: grid; grid-template-columns: 76px minmax(0, 1fr); align-items: center; gap: 10px; }
+.similarity-bar-row > span { color: #7f8f84; font-family: var(--mono); font-size: 8px; letter-spacing: .35px; }
+.recommended-deal-card > .recommended-section { display: grid; grid-template-columns: minmax(145px, .75fr) minmax(0, 1.25fr); align-items: start; gap: 12px; padding-top: 2px; }
+.recommended-label { display: flex; align-items: flex-start; gap: 6px; min-width: 0; color: #587763; font-family: var(--mono); font-size: 8px; line-height: 1.5; letter-spacing: .2px; }
+.recommended-label svg { flex: 0 0 auto; }
+.compact-chips { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 5px; min-width: 0; }
+.compact-chips > span { max-width: 100%; padding: 5px 7px; border: 1px solid #e2ebe3; border-radius: 3px; color: #5e7164; background: #f7faf6; font-size: 9px; line-height: 1.35; overflow-wrap: anywhere; }
+.recommended-deal-card > .recommended-outcome { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 12px; padding: 11px 0; border-top: 1px solid #edf0ec; border-bottom: 1px solid #edf0ec; }
+.recommended-outcome > div { display: grid; align-content: start; gap: 6px; min-width: 0; }
+.recommended-outcome > div > span { color: #829188; font-family: var(--mono); font-size: 8px; letter-spacing: .25px; }
+.recommended-outcome > div > strong { color: #44564b; font-size: 10px !important; line-height: 1.55; overflow-wrap: anywhere; }
+.recommended-outcome > p { margin: 0; color: #68766d; font-size: 10px; line-height: 1.6; overflow-wrap: anywhere; }
+.recommended-deal-card > .recommended-playbook { display: grid; grid-template-columns: minmax(145px, .75fr) minmax(0, 1.25fr); align-items: start; gap: 10px 12px; }
+.recommended-playbook > .recommended-label { grid-column: 1; }
+.recommended-playbook > ol, .recommended-playbook > .mini-list, .recommended-playbook > .compact-warning { grid-column: 2; min-width: 0; }
+.recommended-playbook > ol { display: grid; gap: 6px; margin: 0; padding-left: 17px; color: #536158; font-size: 10px; line-height: 1.5; }
+.recommended-playbook > ol li { padding-left: 2px; overflow-wrap: anywhere; }
+.recommended-playbook > .mini-list { margin-top: 0; }
+.compact-warning { display: flex; align-items: flex-start; gap: 6px; padding: 8px; border-left: 2px solid #d09a64; color: #8d693f; background: #fbf6ed; font-size: 9px; line-height: 1.5; }
+.compact-warning svg { flex: 0 0 auto; }
+.deal-memory-detail { min-width: 0; border-top: 1px solid #edf0ec; }
+.deal-memory-detail > summary { display: flex; align-items: center; gap: 7px; min-height: 34px; color: #687a6d; font-size: 9px; cursor: pointer; list-style: none; }
+.deal-memory-detail > summary::-webkit-details-marker { display: none; }
+.deal-memory-detail > summary > svg:last-child { margin-left: auto; transition: transform .15s ease; }
+.deal-memory-detail[open] > summary > svg:last-child { transform: rotate(180deg); }
+.deal-memory-content { padding: 0 4px 9px; color: #738078; font-size: 9px; line-height: 1.5; }
+.deal-detail-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 3px 0 9px; }
+.deal-detail-grid > div { display: grid; gap: 4px; min-width: 0; }
+.deal-detail-grid > div > span { color: #89968d; font-family: var(--mono); font-size: 8px; }
+.deal-detail-grid > div > strong { color: #59685e; font-size: 9px !important; line-height: 1.4; overflow-wrap: anywhere; }
 .inline-warning { display: flex; align-items: flex-start; gap: 8px; margin-top: 13px; padding: 11px 12px; border: 1px solid #edd9bf; border-radius: 5px; color: #89683e; background: #fff9ed; font-size: 10px; line-height: 1.5; }
 .inline-warning svg { flex: 0 0 auto; }
 .outcome-legend { display: flex; gap: 5px; }
@@ -468,6 +508,12 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .demo-rail { padding: 12px; }
   .rail-step { grid-template-columns: 19px minmax(0, 1fr); }
   .rail-step > svg { display: none; }
+}
+@container recommended-deal (max-width: 420px) {
+  .recommended-deal-card > .recommended-section,
+  .recommended-deal-card > .recommended-outcome,
+  .recommended-deal-card > .recommended-playbook { grid-template-columns: minmax(0, 1fr); }
+  .recommended-playbook > ol, .recommended-playbook > .mini-list, .recommended-playbook > .compact-warning { grid-column: 1; }
 }
 @media (max-width: 720px) {
   .app-frame { display: block; }
