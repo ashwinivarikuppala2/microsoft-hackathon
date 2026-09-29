@@ -1,0 +1,23 @@
+{
+  "name": "dealmind-react",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:api\" \"npm:web\"",
+    "api": ".venv\\Scripts\\python.exe -m uvicorn dealmind.api:app --host 127.0.0.1 --port 8000",
+    "web": "vite --config frontend/vite.config.js",
+    "build": "vite build --config frontend/vite.config.js"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "vite": "^6.0.7"
+  }
+}

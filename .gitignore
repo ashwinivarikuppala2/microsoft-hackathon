@@ -1,0 +1,23 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+node_modules/
+web-dist/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Local data / OS / IDE
+*.sqlite
+*.db
+.DS_Store
+.vscode/
+.idea/

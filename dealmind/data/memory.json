@@ -1,0 +1,20 @@
+[
+  {
+    "id": "mem-276524",
+    "text": "Deal Fabrikam Health (Healthcare, Enterprise, $120,000) hit a Security objection. Competitor: None. Buyer role: CISO. Tactic used: Hold price, add proof (case study / pilot). Outcome: WON. Lesson: Sharing the SOC 2 report early cleared a security objection. Unrelated to price negotiations.",
+    "metadata": {
+      "objection": "Security",
+      "industry": "Healthcare",
+      "size": "Enterprise",
+      "role": "CISO",
+      "competitor": "None",
+      "deal_id": "d-0901",
+      "company": "Fabrikam Health",
+      "tactic": "proof",
+      "outcome": "WON",
+      "lesson": "Sharing the SOC 2 report early cleared a security objection. Unrelated to price negotiations.",
+      "value": "120000"
+    },
+    "created_at": 1790670982.7576492
+  }
+]
