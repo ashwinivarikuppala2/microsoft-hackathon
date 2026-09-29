@@ -52,6 +52,17 @@ The original Streamlit interface remains available with `streamlit run app.py`
 from this project directory; it is retained for compatibility and the existing
 smoke tests.
 
+## Deploy on Render
+The repository includes a Render Blueprint and Dockerfile for a single public
+service that builds the React UI and serves it with FastAPI. In Render, create a
+Blueprint from this GitHub repository and branch `master`. When prompted, enter
+`HINDSIGHT_API_KEY` as a secret in Render; do not commit it to the repository.
+The deployment uses the isolated Hindsight bank `dealmind-public-demo`. Load the
+historical deals from the sidebar after the first deploy. The free service may
+sleep while idle and take a short time to wake. The demo is public and does not
+require authentication, so use synthetic/demo data rather than confidential
+deal information.
+
 ## Code Layout
 - `dealmind/memory.py`: Hindsight wrapper (`retain`, `recall`, `ensure_bank`, connection test)
 - `dealmind/deals.py`: Deals dataset loading, schema validation, prose memory formatting

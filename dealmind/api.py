@@ -5,10 +5,13 @@ from __future__ import annotations
 from dataclasses import asdict, is_dataclass
 from datetime import date, datetime
 from functools import lru_cache
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from dealmind.chat import chat_with_memory
 from dealmind.deals import deal_index, load_deals, option_values
@@ -27,6 +30,7 @@ from dealmind.scenarios import DEAL_A, DEAL_B, QUESTION, SEED_MEMORIES
 from dealmind.seed import seed_historical_deals
 
 app = FastAPI(title="DealMind API", version="1.0.0")
+WEB_DIST = Path(__file__).resolve().parents[1] / "web-dist"
 
 DEAL_RECORDS = load_deals()
 DEAL_INDEX = deal_index(DEAL_RECORDS)
@@ -167,6 +171,11 @@ def bootstrap() -> dict[str, Any]:
             for number, scene in DEMO_SCENES.items()
         },
     }
+
+
+@app.get("/api/health")
+def health() -> dict[str, str]:
+    return {"status": "ok"}
 
 
 @app.post("/api/presets/{preset_id}")
@@ -353,3 +362,15 @@ def close_clients() -> None:
         close = getattr(client, "close", None)
         if callable(close):
             close()
+
+
+if (WEB_DIST / "assets").is_dir():
+    app.mount("/assets", StaticFiles(directory=WEB_DIST / "assets"), name="assets")
+
+if (WEB_DIST / "index.html").is_file():
+    @app.get("/{path:path}", include_in_schema=False)
+    def serve_react_app(path: str) -> FileResponse:
+        requested = (WEB_DIST / path).resolve()
+        if requested.is_relative_to(WEB_DIST) and requested.is_file():
+            return FileResponse(requested)
+        return FileResponse(WEB_DIST / "index.html")
